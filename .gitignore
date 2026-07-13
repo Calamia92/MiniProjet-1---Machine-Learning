@@ -1,0 +1,6 @@
+.venv/
+.idea/
+__pycache__/
+.matplotlib_cache/
+*.pyc
+spiral_decision_boundary.png
