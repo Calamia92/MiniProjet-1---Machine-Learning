@@ -77,7 +77,7 @@ La compilation utilise :
 - loss : `sparse_categorical_crossentropy` ;
 - metrique : `accuracy`.
 
-Dans l'environnement actuel, Python est en version 3.14. TensorFlow n'est pas disponible pour cette version via `pip`, donc le script Keras est pret mais n'a pas pu etre execute localement. Pour executer cette partie, il faut creer un environnement Python compatible TensorFlow.
+Dans l'environnement actuel, Python est en version 3.14. TensorFlow n'est pas disponible pour cette version via `pip`, donc le script Keras est pret mais n'a pas pu etre execute localement. Une solution simple est d'executer `mnist_keras_colab.ipynb` dans Google Colab, qui fournit deja un environnement compatible avec TensorFlow.
 
 ## Conclusion
 

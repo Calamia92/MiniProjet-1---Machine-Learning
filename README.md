@@ -41,6 +41,8 @@ La spirale genere aussi `spiral_decision_boundary.png`.
 python mnist_keras.py
 ```
 
+Alternative plus simple si TensorFlow ne s'installe pas localement : ouvrir `mnist_keras_colab.ipynb` dans Google Colab et executer les cellules.
+
 ## Structure
 
 - `mlp_numpy.py` : implementation du PMC from scratch avec forward propagation, backpropagation, loss et prediction.
