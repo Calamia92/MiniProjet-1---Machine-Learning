@@ -4,7 +4,7 @@ import numpy as np
 
 from datasets import make_spiral, make_xor
 from mlp_numpy import MLP
-from plotting import plot_decision_boundary
+from plotting import plot_decision_boundary, plot_loss_curve
 
 
 def run_xor():
@@ -16,7 +16,7 @@ def run_xor():
         seed=7,
     )
 
-    model.fit(x, y, epochs=10_000, verbose_every=1_000)
+    history = model.fit(x, y, epochs=10_000, verbose_every=1_000)
     proba = model.predict_proba(x)
     predictions = model.predict(x)
 
@@ -24,6 +24,10 @@ def run_xor():
     for inputs, target, p, pred in zip(x, y.ravel(), proba.ravel(), predictions.ravel()):
         print(f"{inputs.astype(int).tolist()} -> cible={int(target)} proba={p:.4f} pred={int(pred)}")
     print(f"accuracy={np.mean(predictions == y):.3f}")
+
+    filename = "xor_loss.png"
+    plot_loss_curve(history, "PMC NumPy - Loss XOR", filename)
+    print(f"Courbe de loss sauvegardee: {filename}")
 
 
 def run_spiral():
@@ -35,7 +39,7 @@ def run_spiral():
         seed=21,
     )
 
-    model.fit(x, y, epochs=4_000, batch_size=64, verbose_every=500)
+    history = model.fit(x, y, epochs=4_000, batch_size=64, verbose_every=500)
     predictions = model.predict(x)
     accuracy = np.mean(predictions == y)
     print(f"\nSpirale 2D accuracy={accuracy:.3f}")
@@ -43,6 +47,10 @@ def run_spiral():
     filename = "spiral_decision_boundary.png"
     plot_decision_boundary(model, x, y, "PMC NumPy - Spirale 2D", filename)
     print(f"Frontiere de decision sauvegardee: {filename}")
+
+    filename = "spiral_loss.png"
+    plot_loss_curve(history, "PMC NumPy - Loss Spirale 2D", filename)
+    print(f"Courbe de loss sauvegardee: {filename}")
 
 
 def main():

@@ -28,3 +28,21 @@ def plot_decision_boundary(model, x, y, title, filename):
     plt.tight_layout()
     plt.savefig(filename, dpi=150)
     plt.close()
+
+
+def plot_loss_curve(history, title, filename):
+    if not history:
+        return
+
+    epochs = [point[0] for point in history]
+    losses = [point[1] for point in history]
+
+    plt.figure(figsize=(7, 4))
+    plt.plot(epochs, losses, marker="o", linewidth=2)
+    plt.title(title)
+    plt.xlabel("Epoch")
+    plt.ylabel("Loss")
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(filename, dpi=150)
+    plt.close()

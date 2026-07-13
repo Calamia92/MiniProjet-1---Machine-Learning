@@ -4,3 +4,5 @@ __pycache__/
 .matplotlib_cache/
 *.pyc
 spiral_decision_boundary.png
+xor_loss.png
+spiral_loss.png
